@@ -1,0 +1,13 @@
+<div class="container card p-4" *ngIf="!posts">No posts found 😭</div>
+<ul *ngIf="posts" class="d-flex flex-column gap-4">
+  <li
+    *ngFor="let post of posts"
+    routerLink="/s/{{ post.subreddit }}/{{ post.id }}"
+    class="post-card"
+  >
+    <app-post-card
+      [postData]="post"
+      (onVotePost)="votePost($event)"
+    ></app-post-card>
+  </li>
+</ul>

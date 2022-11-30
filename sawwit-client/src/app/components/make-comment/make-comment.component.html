@@ -1,0 +1,24 @@
+<form
+  class="w-100 d-flex flex-column gap-3 mt-4 position-relative make-comment flex-one"
+  [formGroup]="createCommentForm"
+  *ngIf="user && parentId && parentLevel !== undefined && parentLevel > -2"
+  (ngSubmit)="createComment(createCommentForm, parentId, parentLevel)"
+>
+  <div class="d-flex flex-row justify-content-between align-items-center">
+    <div>
+      <h6 class="posting-as">
+        Commenting as
+        <a class="username" routerLink="/u/{{ user.id }}">
+          u/{{ user.username }}</a
+        >
+      </h6>
+    </div>
+    <button type="submit" class="post-reply-btn">Post comment</button>
+  </div>
+  <textarea
+    autosize
+    class="w-100"
+    formControlName="content"
+    placeholder="What are your thoughts?"
+  ></textarea>
+</form>

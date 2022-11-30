@@ -1,0 +1,4 @@
+.borders {
+  border-right: 1px solid var(--dark-secondary);
+  padding-right: 0;
+}

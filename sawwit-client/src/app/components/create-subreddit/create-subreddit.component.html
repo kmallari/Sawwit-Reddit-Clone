@@ -1,0 +1,28 @@
+<div *ngIf="isLogin" class="card">
+  <form
+    [formGroup]="createSubredditForm"
+    (ngSubmit)="createSubreddit(createSubredditForm)"
+    class="d-flex flex-column gap-3"
+  >
+    <div class="d-flex flex-column gap-2">
+      <label for="subreddit">Create a community</label>
+      <input
+        name="subreddit"
+        type="text"
+        placeholder="Name of subsawwit"
+        maxlength="20"
+        formControlName="subreddit"
+      />
+    </div>
+    <div>
+      <textarea
+        autosize
+        name="description"
+        placeholder="What's your community about?"
+        maxlength="255"
+        formControlName="description"
+      ></textarea>
+    </div>
+    <button type="submit" class="create-subreddit-btn">Create Subsawwit</button>
+  </form>
+</div>

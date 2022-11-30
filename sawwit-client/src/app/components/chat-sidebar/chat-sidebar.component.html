@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="d-flex flex-row justify-content-between align-items-center">
+    <div class="d-flex flex-row gap-1 chat-tabs-container">
+      <button
+        class="btn {{ tab === 'rooms' ? 'selected-tab' : '' }}"
+        (click)="handleTabChange('rooms')"
+      >
+        Rooms
+      </button>
+      <button
+        class="btn {{ tab === 'invitations' ? 'selected-tab' : '' }}"
+        (click)="handleTabChange('invitations')"
+      >
+        Invitations
+      </button>
+    </div>
+    <button class="btn add-room-btn" routerLink="/chat">
+      <i class="bi bi-plus"></i>
+    </button>
+  </div>
+  <ul *ngIf="tab === 'rooms'" class="d-flex flex-column gap-3">
+    <li *ngFor="let room of roomsUserIsIn" className="">
+      <button
+        class="h-100 w-100 btn room d-flex flex-row gap-3 {{
+          room.id === roomId ? 'selected-room' : ''
+        }}"
+        routerLink="/chat/{{ room.id }}"
+        (click)="handleRoomClick(room.id)"
+      >
+        <img src="{{ room.roomImage }}" alt="" class="room-img" />
+        <div class="d-flex flex-column">
+          <h5 class="room-name">{{ room.name }}</h5>
+          <h6 class="room-desc">Updated {{ getTimeAgo(room.updatedAt) }}</h6>
+        </div>
+      </button>
+    </li>
+  </ul>
+  <ul *ngIf="tab === 'invitations'" class="d-flex flex-column gap-3">
+    <li *ngFor="let invite of invitations" class="invitation">
+      <h5 class="invite-text mb-2">
+        Invited to <span class="highlight">{{ invite.roomName }}</span> by
+        <span class="highlight">{{ invite.invitedByUsername }}</span>
+      </h5>
+      <div class="">
+        <button
+          class="response-btn accept-btn"
+          (click)="respondToInvitation(invite.roomId, true)"
+        >
+          <i class="bi bi-check"></i>
+        </button>
+        <button
+          class="response-btn reject-btn"
+          (click)="respondToInvitation(invite.roomId, false)"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,70 @@
+.make-comment {
+  padding: 1em;
+  background-color: var(--dark-secondary);
+  border-radius: 0.4em;
+}
+
+.posting-as {
+  font-size: smaller;
+  color: var(--light-secondary);
+  padding: 0.4em 0;
+}
+
+.username {
+  color: var(--light-primary);
+}
+
+.username:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.no-comments {
+  color: var(--light-secondary);
+  font-size: small;
+}
+
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+textarea:focus {
+  box-shadow: 0 0 0 0.1em var(--secondary);
+}
+
+.post-reply-btn {
+  width: 120px;
+  height: 32x;
+  font-size: smaller;
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: var(--light-primary);
+  padding: 0.6em 1em;
+  border-radius: 0.4em;
+  bottom: 1em;
+  right: 1em;
+  transition: all 0.1s ease-in-out;
+}
+
+.post-reply-btn:hover {
+  background-color: rgb(238, 28, 63);
+}
+
+textarea {
+  resize: none;
+  background-color: var(--dark-hover);
+  border: none;
+  color: var(--light-secondary);
+  padding: 0.8em;
+  font-size: small;
+  box-shadow: none;
+  outline: none;
+  border-radius: 0.4em;
+}
+
+.flex-one {
+  flex: 1;
+}

@@ -1,0 +1,20 @@
+<div class="card px-4 pb-4" *ngIf="comments">
+  <app-make-comment
+    [parentId]="postId"
+    [parentLevel]="-1"
+    (onCreateComment)="createComment($event)"
+  ></app-make-comment>
+  <p *ngIf="comments.length === 0" class="mt-5 no-comments">
+    No comments yet. Be the first to comment!
+  </p>
+  <ul>
+    <li *ngFor="let comment of comments" class="">
+      <app-comment
+        [comment]="comment"
+        (onGetNextComments)="getNextComments($event)"
+        (onCreateComment)="createComment($event)"
+        (onVoteComment)="voteComment($event)"
+      ></app-comment>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,26 @@
+.submit-box {
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-secondary);
+  color: var(--light-secondary);
+  padding: 0.4em 1em;
+  border-radius: 0.4em;
+  outline: none;
+  cursor: text;
+}
+
+input {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+submit-box:focus {
+  border: 1px solid var(--primary);
+  outline: none;
+}
+
+.submit-box:focus,
+.submit-box:hover {
+  box-shadow: 0 0 0 1px var(--dark-hover);
+}

@@ -1,0 +1,7 @@
+.sidebar {
+  height: 100vh;
+}
+
+.list-group.list-group-flush.border-bottom.scrollarea {
+  overflow-y: auto;
+}

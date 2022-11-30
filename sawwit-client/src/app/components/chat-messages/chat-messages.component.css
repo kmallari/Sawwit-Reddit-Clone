@@ -1,0 +1,96 @@
+.room-name {
+  border-bottom: 1px solid var(--dark-secondary);
+  font-weight: 600;
+}
+
+.input {
+  resize: none;
+  background-color: var(--dark-secondary);
+  border: none;
+  color: var(--light-secondary);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 1px var(--secondary);
+}
+
+textarea {
+  height: 32px;
+}
+
+.send-btn {
+  color: var(--secondary);
+  background-color: var(--dark-secondary);
+  border-radius: 0.4em;
+  box-shadow: none;
+  outline: none;
+  border: none;
+  padding-left: 1.2em;
+  padding-right: 1.2em;
+}
+
+.sender-pp {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: fit;
+}
+
+ul {
+  list-style: none;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0;
+  overflow: auto;
+  height: calc(100vh - 260px);
+}
+
+
+
+.sender {
+  font-size: small;
+  color: var(--light-secondary);
+}
+
+.own {
+  margin-left: auto;
+}
+
+.message {
+  width: fit-content;
+  max-width: 90%;
+  padding: 0.6em 1em;
+  background-color: var(--dark-secondary);
+  border-radius: 0.1em 0.8em 0.8em 0.8em;
+}
+
+.own-message {
+  background-color: var(--secondary);
+  margin-left: auto;
+  border-radius: 0.8em 0.1em 0.8em 0.8em;
+}
+
+.sent {
+  font-size: smaller;
+  color: var(--light-secondary);
+}
+
+.sent-own {
+  text-align: right;
+}
+
+@media only screen and (min-width: 991px) {
+  .message {
+    max-width: 60%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--dark-secondary);
+  border-radius: 100em;
+}

@@ -1,0 +1,110 @@
+p,
+h6 {
+  margin: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+h6,
+.time {
+  font-size: small;
+  cursor: text;
+}
+
+h6,
+.time {
+  font-weight: 500;
+  color: white;
+}
+
+p,
+.time {
+  color: var(--light-secondary);
+  font-weight: 400;
+}
+
+.reveal-comments-btn {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--secondary);
+  margin-top: 1em;
+  font-size: small;
+  text-align: start;
+}
+
+.bi-caret-up-fill,
+.bi-caret-down-fill {
+  padding: 0.4em 0.2em;
+  font-size: smaller;
+}
+
+.threadline {
+  border-right: 2px solid var(--dark-hover);
+}
+
+.reply-button {
+  background-color: var(--dark-secondary);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--light-secondary);
+  font-size: small;
+  padding: 0.2em 1em;
+  border-radius: 0.4em;
+}
+
+.reply-button:hover {
+  background-color: var(--dark-hover);
+}
+
+textarea {
+  resize: none;
+  background-color: var(--dark-secondary);
+  border: none;
+  color: var(--light-secondary);
+  padding: 0.8em;
+  font-size: small;
+  box-shadow: none;
+  outline: none;
+  border-radius: 0.4em;
+  transition: all 0.1s ease-in-out;
+}
+
+.flex-one {
+  flex: 1;
+  /* flex start */
+}
+
+.post-reply-btn {
+  width: 90px;
+  height: 26x;
+  font-size: small;
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: var(--light-primary);
+  font-size: small;
+  padding: 0.4em 1em;
+  border-radius: 0.4em;
+}
+
+p {
+  cursor: text;
+}
+
+textarea:focus {
+  box-shadow: 0 0 0 0.1em var(--secondary);
+}
+
+a:hover{
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

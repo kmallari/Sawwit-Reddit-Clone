@@ -1,0 +1,121 @@
+.list-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(48, 48, 48, 0.9);
+  border: 1px solid var(--dark-hover);
+}
+
+.search-result-box {
+  top: 58px;
+  left: 0;
+  max-height: 200px;
+  overflow: auto;
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.4em;
+}
+
+.search-result {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.search-result:nth-child(2n + 2) {
+  background-color: rgb(56, 56, 56, 0.9);
+}
+
+.search-result:hover {
+  background-color: var(--dark-hover);
+}
+
+.subreddit-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.8em;
+}
+
+.border-primary {
+  border: 1px solid var(--primary);
+}
+
+.search-box {
+  background-color: var(--dark-secondary);
+  color: var(--light-secondary);
+}
+
+.search-subreddit {
+  width: 100%;
+  height: 100%;
+  padding: 0.6em 1em;
+}
+
+.search-container {
+  padding: 0;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: var(--dark-secondary);
+  padding-left: 1em;
+  padding-right: 1em;
+  border-radius: 0.4em;
+  height: 3em;
+}
+
+.search-container:focus-within {
+  background-color: var(--dark-secondary);
+  box-shadow: 0 0 0 1px var(--primary);
+  color: var(--light-secondary);
+  border: none;
+  outline: none;
+}
+
+.form-control {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.selected-subreddit {
+  background-color: var(--dark-hover);
+  padding: 0.2em 0.8em;
+  margin-left: -0.2em;
+  color: var(--light-secondary);
+  border-radius: 0.4em;
+}
+
+.bi {
+  color: var(--light-secondary);
+}
+
+.bi-x-circle {
+  color: var(--light-primary);
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.bi-x-circle:hover {
+  color: var(--secondary);
+}
+
+p {
+  margin: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--dark-secondary);
+  border-radius: 0 0.4em 0.4em 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(69, 69, 69);
+  transition: all 0.1s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(84, 84, 84);
+}

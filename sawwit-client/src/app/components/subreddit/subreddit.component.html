@@ -1,0 +1,52 @@
+<!-- <app-sidebar-left class="col"></app-sidebar-left> -->
+<div
+  class="w-100 container mt-5"
+  infiniteScroll
+  [infiniteScrollDistance]="0.5"
+  [infiniteScrollThrottle]="150"
+  (scrolled)="onScroll()"
+>
+  <div class="row">
+    <div class="col-12 col-lg-8 d-flex flex-column gap-4 order-2 order-lg-1">
+      <div *ngIf="isLogin" class="card p-4 mt-4 mt-lg-0">
+        <app-create-post-cta></app-create-post-cta>
+      </div>
+      <app-posts-list [posts]="posts"></app-posts-list>
+      <div class="card p-4"><p class="m-0">You've reached the end!</p></div>
+    </div>
+    <div
+      class="col-12 col-lg-4 d-flex flex-column gap-4 order-1 order-lg-2"
+      *ngIf="subreddit"
+    >
+      <div class="card">
+        <div class="header"></div>
+
+        <div class="d-flex flex-row gap-1 subreddit-header">
+          <img
+            src="{{ subreddit.icon }}"
+            alt="{{ subreddit.name }}-icon"
+            class="subreddit-icon"
+          />
+          <div class="d-flex flex-column align-items-start p-1 gap-2">
+            <h5 class="header-subreddit-name">{{ subreddit.name }}</h5>
+            <span class="post-count d-flex flex-row gap-2"
+              ><i class="bi bi-chat-left-dots"></i
+              >{{ subreddit.postCount }} posts</span
+            >
+          </div>
+        </div>
+        <div class="d-flex flex-column subreddit-info gap-3">
+          <p class="header-subreddit-description">
+            {{ subreddit.description }}
+          </p>
+          <hr />
+          <a routerLink="/s/{{ subreddit.name }}/update" class="btn w-100">
+            <button type="button" class="btn update-btn w-100">
+              Update subsawwit
+            </button></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="rounded-3 container form-container">
+  <button class="close" data-bs-dismiss="modal">
+    <i class="bi bi-x"></i>
+  </button>
+  <h3>Log In.</h3>
+  <p>Login to enter sawwit.</p>
+  <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm)">
+    <div class="form-floating d-flex flex-row">
+      <input
+        type="email"
+        class="form-control {{ invalidLogin ? 'error-border' : '' }}"
+        id="floatingInput"
+        placeholder="name@example.com"
+        formControlName="loginInfo"
+        (change)="setInvalidLogin()"
+      />
+      <label
+        for="floatingInput"
+        class="d-flex flex-row align-items-center gap-2"
+        ><i class="bi bi-person"></i>USERNAME/EMAIL</label
+      >
+      <div class="position-absolute error-tag" *ngIf="invalidLogin">
+        <i class="bi bi-exclamation-circle"></i>
+      </div>
+    </div>
+    <div class="form-floating">
+      <input
+        type="password"
+        class="form-control {{ invalidLogin ? 'error-border' : '' }}"
+        id="floatingPassword"
+        placeholder="Password"
+        formControlName="password"
+        (change)="setInvalidLogin()"
+      />
+      <label
+        for="floatingPassword"
+        class="d-flex flex-row align-items-center gap-2"
+        ><i class="bi bi-key"></i>PASSWORD</label
+      >
+    </div>
+    
+    <p class="invalid-login-msg m-0" *ngIf="invalidLogin">
+      Invalid credentials or user does not exist.
+    </p>
+    <button type="submit" class="btn btn-primary">Log In</button>
+  </form>
+  <p class="signup-message">
+    New to sawwit?
+    <span
+      class="open-signup"
+      data-bs-dismiss="modal"
+      data-bs-toggle="modal"
+      data-bs-target="#signupModal"
+      >SIGN UP</span
+    >
+  </p>
+</div>

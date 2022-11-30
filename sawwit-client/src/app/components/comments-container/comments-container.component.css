@@ -1,0 +1,9 @@
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card {
+  max-height: fit-content;
+  cursor: default;
+}

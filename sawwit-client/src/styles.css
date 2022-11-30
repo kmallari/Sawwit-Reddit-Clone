@@ -1,0 +1,247 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ngx-toastr/toastr";
+
+:root {
+  --primary: #c83e4d;
+  --primary-hover: #d8505e;
+  --secondary: #449be2;
+  --secondary-hover: #2588eb;
+  --dark-primary: #252525;
+  --dark-secondary: #333333;
+  --dark-hover: #414141;
+  --light-primary: #ffffff;
+  --light-secondary: #a7a7a7;
+}
+
+body {
+  font-family: "Anek Malayalam", sans-serif;
+  color: var(--light-primary);
+  background-color: var(--dark-primary);
+}
+
+input:focus,
+button:focus {
+  box-shadow: 0 0 0 1px var(--secondary);
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--dark-secondary);
+  transition: all 0.1s ease-in-out;
+}
+
+.card:hover {
+  border: 1px solid var(--dark-hover);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.05);
+}
+
+.subreddit-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 1em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+a {
+  text-decoration: none;
+}
+
+.subreddit-name {
+  font-weight: 600;
+  font-size: 1em;
+  color: var(--primary);
+}
+
+.author {
+  font-size: 0.8em;
+  font-weight: 500;
+  color: var(--light-secondary);
+}
+
+.author-name {
+  color: var(--light-secondary);
+}
+
+.bi-dot {
+  font-size: 0.8em;
+  color: var(--light-secondary);
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  color: inherit;
+}
+
+.time {
+  font-size: 0.8em;
+  color: var(--light-secondary);
+}
+
+.time:hover {
+  text-decoration: none;
+}
+
+.post-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--light-primary);
+}
+
+.vote-count {
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  width: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comments {
+  letter-spacing: 0.1em;
+  font-size: 0.8em;
+  transition: all 0.1s ease-in-out;
+  padding: 0.8em;
+  border-radius: 0.4em;
+}
+
+.comments:hover {
+  background-color: var(--dark-hover);
+}
+
+.bi-caret-up-fill,
+.bi-caret-down-fill {
+  padding: 0.2em 0.4em;
+  border-radius: 0.4em;
+  background-color: var(--dark-secondary);
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+.bi-caret-up-fill:hover,
+.bi-caret-down-fill:hover {
+  background-color: var(--dark-hover);
+}
+
+.subreddit-name:hover {
+  color: var(--primary);
+}
+
+.bi {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.booody {
+  margin-top: 8em;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--dark-secondary);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+  border-radius: 1em;
+  transition: all 0.1s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(65, 107, 245);
+}
+
+textarea {
+  transition: all 0.1s ease-in-out;
+}
+
+.vote-btn {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: var(--light-primary);
+}
+
+.vote-btn:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.upvoted {
+  background-color: var(--primary);
+}
+
+.upvoted:hover {
+  background-color: var(--primary-hover);
+}
+
+.downvoted {
+  background-color: var(--secondary);
+}
+
+.downvoted:hover {
+  background-color: var(--secondary-hover);
+}
+
+.image-preview {
+  top: -60px;
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.chat-sidebar {
+  margin-top: -48px;
+  height: calc(100vh - 80px);
+  width: 100%;
+}
+
+@media only screen and (min-width: 991px) {
+  .chat-sidebar {
+    display: flex;
+    flex-direction: row;
+    margin-top: -60px;
+    min-width: 320px;
+    max-width: 320px;
+  }
+}
+
+textarea,
+input {
+  resize: none;
+  background-color: var(--dark-secondary);
+  border: none;
+  color: var(--light-secondary);
+}
+
+textarea:focus,
+input:focus {
+  background-color: var(--dark-secondary);
+  box-shadow: 0 0 0 1px var(--secondary);
+  color: var(--light-secondary);
+  border: none;
+  outline: none;
+}

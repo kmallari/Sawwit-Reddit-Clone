@@ -1,0 +1,44 @@
+.user-info-container {
+  padding: 0;
+}
+
+.header {
+  height: 120px;
+  background-color: var(--primary);
+  border-radius: 0.2em 0.2em 0 0;
+}
+
+.user-profile-picture {
+  width: 120px;
+  height: 120px;
+  margin-top: -60px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  outline: 10px solid #292929;
+  object-fit: cover;
+}
+
+.username {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+h5 {
+  margin: 0;
+}
+
+.account-age {
+  font-size: 0.8em;
+  color: var(--light-secondary);
+}
+
+hr {
+  width: 80%;
+  margin: auto;
+  background-color: rgb(90, 90, 90);
+}
+
+.balloon-day {
+  color: var(--light-secondary);
+}

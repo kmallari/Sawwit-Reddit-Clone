@@ -1,0 +1,107 @@
+<div
+  *ngIf="postData"
+  class="card p-4 {{ postData.type === 2 ? 'card-image' : '' }} {{
+    revealFullContent ? 'card-fit-content flex-start' : 'card-limited-height'
+  }}"
+>
+  <div class="d-flex flex-row gap-4 justify-content-between w-100">
+    <div class="d-flex flex-column align-items-start gap-3">
+      <div class="d-flex flex-row" id="post-header">
+        <div>
+          <img src="{{ postData.subredditIcon }}" class="subreddit-icon" />
+        </div>
+        <div class="d-flex flex-column">
+          <a class="subreddit-name" routerLink="/s/{{ postData.subreddit }}"
+            >s/{{ postData.subreddit }}</a
+          >
+          <div class="d-flex flex-row align-items-center gap-1">
+            <span class="author"
+              >Posted by
+              <a class="author-name" routerLink="/u/{{ postData.userId }}"
+                >u/{{ postData.username }}</a
+              ></span
+            >
+            <i class="bi bi-dot"></i>
+            <a class="time">{{ getTimeAgo(postData.createdAt) }}</a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="d-flex flex-column gap-2 justify-content-between w-100"
+        id="post-body"
+      >
+        <h3 class="post-title">{{ postData.title }}</h3>
+
+        <!-- FOR TEXT (TYPE 1) -->
+        <p
+          *ngIf="postData.type === 1"
+          style="white-space: pre-line"
+          class="post-body {{ !revealFullContent ? 'clip-text' : 'no-clip' }}"
+        >
+          {{ postData.body }}
+        </p>
+
+        <!-- FOR IMAGES (TYPE 2) -->
+        <div
+          *ngIf="postData.type === 2"
+          class="d-flex mb-2 position-relative {{
+            revealFullContent ? 'mx-auto' : 'image-container'
+          }}"
+        >
+          <img
+            class="{{
+              revealFullContent ? 'img-fluid' : 'small-image img-fluid'
+            }} mx-auto"
+            [src]="postData.image"
+            [alt]="postData.title"
+            height="200px"
+          />
+          <div class="view-image-prompt">Click to view full image</div>
+        </div>
+
+        <!-- FOR URLS (TYPE 3) -->
+        <a
+          *ngIf="postData.type === 3"
+          class="mb-2 url"
+          href="{{ postData.url }}"
+          target="_blank"
+          (click)="stopPropagation($event)"
+          >{{
+            postData.url.length > 48
+              ? (postData.url | slice: 0:48) + "..."
+              : postData.url
+          }}</a
+        >
+      </div>
+    </div>
+    <!-- IMAGE PREVIEW FOR TYPE 3 -->
+    <a
+      *ngIf="postData.type === 3"
+      class="link-preview d-none d-md-inline position-relative"
+      href="{{ postData.url }}"
+      target="_blank"
+      (click)="stopPropagation($event)"
+    >
+      <img src="{{ postData.linkPreview }}" class="image-in-preview" />
+      <div class="position-absolute link-icon">
+        <i class="bi bi-box-arrow-up-left"></i>
+      </div>
+    </a>
+  </div>
+  <div class="d-flex justify-content-between align-items-center w-100">
+    <div class="d-flex flex-row align-items-center gap-2">
+      <button (click)="votePost($event, 1)" class="vote-btn">
+        <i class="bi bi-caret-up-fill {{ vote === 1 ? 'upvoted' : '' }}"></i>
+      </button>
+      <span class="vote-count">{{
+        postData.upvotes - postData.downvotes + vote
+      }}</span>
+      <button (click)="votePost($event, -1)" class="vote-btn">
+        <i
+          class="bi bi-caret-down-fill {{ vote === -1 ? 'downvoted' : '' }}"
+        ></i>
+      </button>
+    </div>
+    <div class="comments">{{ postData.commentsCount }} comments</div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+.footer {
+  background-color: var(--dark-primary);
+  border-top: 1px solid var(--dark-secondary);
+  margin-top: 6em;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+}
+
+p {
+  margin: 0;
+  color: rgb(112, 112, 112);
+}
+
+a {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.github-link {
+  color: var(--light-secondary);
+  cursor: pointer;
+}
+
+a {
+  color: var(--primary);
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+
+.github-link:hover {
+  color: var(--secondary);
+  text-decoration: none;
+}

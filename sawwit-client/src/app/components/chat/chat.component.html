@@ -1,0 +1,15 @@
+<div class="w-100 chat-container flex-row">
+  <!-- <app-chat-sidebar class="pt-3 borders chat-sidebar"></app-chat-sidebar> -->
+  <app-chat-messages
+    [room]="room"
+    *ngIf="roomId"
+    class="chat-messages d-flex flex-column chat-messages w-100"
+  ></app-chat-messages>
+  <app-start-chat *ngIf="!roomId" class="chat-messages"></app-start-chat>
+  <app-chat-rightbar
+    *ngIf="roomId"
+    class="chat-rightbar"
+    [room]="room"
+    [participants]="participants"
+  ></app-chat-rightbar>
+</div>

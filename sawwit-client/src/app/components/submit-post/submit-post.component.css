@@ -1,0 +1,106 @@
+@media (min-width: 992px) {
+  .container {
+    max-width: 840px;
+  }
+}
+
+textarea,
+input {
+  resize: none;
+  background-color: var(--dark-secondary);
+  border: none;
+  color: var(--light-secondary);
+}
+
+textarea:focus,
+input:focus {
+  background-color: var(--dark-secondary);
+  box-shadow: 0 0 0 1px var(--secondary);
+  color: var(--light-secondary);
+  border: none;
+  outline: none;
+}
+
+.title {
+  /* height: 36px !important; */
+  padding-bottom: 0;
+  padding-top: 1em;
+}
+
+.btn {
+  padding: 0.4em 1em;
+  background-color: var(--light-secondary);
+  transition: all 0.1s ease-in-out;
+  border-radius: 100em;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background-color: var(--light-primary);
+}
+
+.card {
+  cursor: default;
+  max-height: fit-content;
+  padding: 2em;
+}
+
+.bi-search,
+.bi-chevron-compact-down {
+  color: var(--light-secondary);
+}
+
+h6 {
+  color: var(--light-secondary);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-type-btn {
+  padding: 0.4em 1em;
+  background-color: var(--dark-secondary);
+  transition: all 0.1s ease-in-out;
+  border-radius: 0.4em;
+  font-weight: 600;
+  font-size: smaller;
+  color: var(--light-secondary);
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.nav > .nav-item > .active {
+  background-color: var(--secondary);
+  color: var(--light-primary);
+}
+
+.image-upload-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.image-upload {
+  background-color: var(--dark-secondary);
+  border: none;
+  outline: none;
+  color: #60676d;
+  height: 8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-upload:hover {
+  background-color: var(--dark-secondary);
+  box-shadow: 0 0 0 1px var(--secondary);
+  border: none;
+  outline: none;
+}

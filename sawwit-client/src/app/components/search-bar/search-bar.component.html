@@ -1,0 +1,48 @@
+<div
+  class="form-inline my-2 my-lg-0 position-relative d-flex flex-row align-items-center search-container"
+>
+  <div
+    *ngIf="selectedSubreddit"
+    class="selected-subreddit d-flex flex-row gap-4"
+  >
+    <div class="d-flex flex-row gap-2 align-items-center">
+      <img
+        class="profile-picture"
+        src="{{ selectedSubreddit.icon }}"
+        alt="{{ selectedSubreddit.name }}"
+      />
+      <p>s/{{ selectedSubreddit.name }}</p>
+    </div>
+    <i class="bi bi-x-circle" (click)="clearSelectedSubreddit()"></i>
+  </div>
+  <div *ngIf="!selectedSubreddit" class="d-flex flex-row w-100">
+    <i class="bi bi-search"></i>
+    <input
+      class="form-control mr-sm-2 search-box search-subreddit"
+      type="search"
+      placeholder="{{ placeHolder }}"
+      aria-label="Search"
+      #searchBox
+      (input)="search(searchBox.value)"
+    />
+  </div>
+  <div
+    *ngIf="searchedSubreddits && searchedSubreddits.length > 0 && showSearchResults"
+    class="position-absolute w-100 search-result-box"
+  >
+    <ul class="list-container">
+      <li
+        *ngFor="let subreddit of searchedSubreddits"
+        class="search-result"
+        (click)="onClick(subreddit.name)"
+      >
+        <img
+          src="{{ subreddit.icon }}"
+          alt="{{ subreddit.name }}"
+          class="subreddit-icon ms-3 ms-lg-4"
+        />
+        <a>s/{{ subreddit.name }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

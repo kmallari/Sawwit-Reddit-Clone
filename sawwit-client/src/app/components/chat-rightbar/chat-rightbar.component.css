@@ -1,0 +1,119 @@
+input {
+  padding: 0.4em 1em;
+  border-radius: 0.4em;
+  width: 100%;
+}
+
+.room-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 1.6em;
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+  color: var(--light-secondary);
+}
+
+.btn {
+  padding: 0.4em 1em;
+  background-color: var(--light-secondary);
+  transition: all 0.1s ease-in-out;
+  border-radius: 100em;
+  font-weight: 600;
+  font-size: small;
+}
+
+.btn:hover {
+  background-color: var(--light-primary);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--dark-secondary);
+  padding: 1em;
+  border-radius: 0.4em;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.participant {
+  background-color: var(--dark-hover);
+  padding: 0.2em 0.6em;
+  border-radius: 0.4em;
+}
+
+a {
+  color: var(--light-secondary);
+  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+}
+
+a:hover {
+  color: var(--light-primary);
+}
+
+.participants-container {
+  padding-left: 1.6em;
+  padding-right: 1.6em;
+  padding-bottom: 1.6em;
+  border-bottom: 1px solid var(--dark-secondary);
+}
+
+.change-name-container {
+  padding: 1.6em;
+  border-bottom: 1px solid var(--dark-secondary);
+}
+
+.add-users-container {
+  padding: 1.6em;
+}
+
+.new-user-btn {
+  background-color: var(--dark-secondary);
+  color: var(--light-secondary);
+  padding: 0.4em 1em;
+  border-radius: 0.4em;
+  font-weight: 600;
+  font-size: small;
+  transition: all 0.1s ease-in-out;
+  border: none;
+}
+
+.new-user-btn:hover {
+  background-color: var(--dark-hover);
+}
+
+.bi-x-circle {
+  cursor: pointer;
+}
+
+.bi-x-circle:hover {
+  color: var(--secondary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--dark-secondary);
+  border-radius: 100em;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(99, 99, 99);
+  border-radius: 1em;
+  transition: all 0.1s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(139, 139, 139);
+}

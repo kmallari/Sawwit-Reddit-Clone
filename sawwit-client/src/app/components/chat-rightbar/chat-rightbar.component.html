@@ -1,0 +1,80 @@
+<div>
+  <h2 class="room-name">{{ room.name }}</h2>
+  <div class="participants-container">
+    <h3>Room participants</h3>
+    <ul class="d-flex flex-column gap-2">
+      <li *ngFor="let u of participants">
+        <a
+          routerLink="/u/{{ u.userId }}"
+          class="d-flex flex-row gap-2 participant align-items-center"
+        >
+          <img
+            src="{{ u.userProfilePicture }}"
+            alt=""
+            class="profile-picture"
+          />
+          <span>{{ u.username }}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="change-name-container">
+    <h3>Change room name</h3>
+    <div class="d-flex flex-column gap-3">
+      <input
+        class=""
+        type="text"
+        placeholder="Enter new room name here."
+        [(ngModel)]="newRoomName"
+      />
+      <button (click)="changeRoomName()" class="btn">Update</button>
+    </div>
+  </div>
+
+  <div class="add-users-container">
+    <h3>Search for users to invite</h3>
+
+    <div class="d-flex flex-column gap-3">
+      <input
+        type="text"
+        placeholder="Search users..."
+        #searchBox
+        (input)="search(searchBox.value)"
+      />
+
+      <button
+        *ngFor="let user of searchedUsers"
+        (click)="addToGroup(user)"
+        class="new-user-btn"
+      >
+        <img src="{{ user.profilePicture }}" alt="" class="profile-picture" />
+        <span> {{ user.username }} </span>
+      </button>
+      <!-- LISTING DOWN THE USERS TO MESSAGE -->
+      <ul class="d-flex flex-column gap-2" *ngIf="usersInGroup.length !== 0">
+        <li
+          *ngFor="let user of usersInGroup"
+          class="d-flex flex-row gap-2 participant align-items-center justify-content-between"
+        >
+          <div class="d-flex flex-row gap-2 participant align-items-center">
+            <img
+              src="{{ user.profilePicture }}"
+              alt=""
+              class="profile-picture"
+            />
+            <span>{{ user.username }}</span>
+          </div>
+          <i class="bi bi-x-circle" (click)="handleRemoveFromList(user)"></i>
+        </li>
+      </ul>
+      <button
+        *ngIf="usersInGroup.length !== 0"
+        (click)="inviteUsersToRoom()"
+        class="btn"
+      >
+        Add users
+      </button>
+    </div>
+  </div>
+</div>

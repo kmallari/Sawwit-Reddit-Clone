@@ -1,0 +1,144 @@
+.flex-start {
+  align-items: flex-start;
+}
+
+.post-body {
+  font-size: 1em;
+  line-height: 1.8em;
+  overflow-y: hidden;
+  font-weight: 500;
+}
+
+.clip-text {
+  /* Create the gradient. */
+  background-color: var(--light-secondary);
+  background-image: linear-gradient(to bottom, #00000000, var(--dark-primary));
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 90px;
+}
+
+.no-clip {
+  color: var(--light-secondary);
+  background-color: none;
+  font-weight: 400;
+}
+
+.card-limited-height {
+  max-height: 400px;
+}
+
+.card-image {
+  max-height: 590px;
+}
+
+.card-fit-content {
+  max-height: fit-content;
+}
+
+.small-image {
+  min-width: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.full-image {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-container {
+  max-height: 360px;
+  position: relative;
+  float: left;
+}
+
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    var(--dark-primary) 100%
+  );
+  z-index: 1;
+}
+
+.view-image-prompt {
+  opacity: 0;
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 0.6em;
+  border-radius: 0.4em;
+  box-shadow: 0 1em 1em rgb(0, 0, 0, 0.3);
+  font-size: smaller;
+  color: var(--light-primary);
+  transition: 0.1s ease-in-out;
+  border: 1px solid var(--dark-secondary);
+}
+
+.image-container:hover .view-image-prompt {
+  opacity: 1;
+}
+
+.view-image-prompt:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.url {
+  font-size: smaller;
+  width: fit-content;
+  color: var(--secondary);
+}
+
+.link-preview {
+  border-radius: 0.4em;
+  height: 80px;
+  width: 80px;
+  /* top: -60px; */
+}
+
+.image-in-preview {
+  outline: 2px solid var(--light-primary);
+  height: 80px;
+  width: 80px;
+  border-radius: 0.4em;
+  object-fit: cover;
+  object-position: 50% 50%;
+  transition: 0.1s ease-in-out;
+}
+
+.image-in-preview:hover {
+  outline: 4px solid var(--light-primary);
+}
+
+.link-icon {
+  background-color: var(--light-primary);
+  color: var(--secondary);
+  padding: 0.4em;
+  bottom: 0;
+  right: 0;
+  font-size: small;
+  border-radius: 0.4em 0em 0.4em 0em;
+}

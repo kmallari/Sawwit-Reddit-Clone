@@ -1,0 +1,139 @@
+<nav class="navbar navbar-expand-lg d-flex justify-content-around fixed-top">
+  <div class="container d-flex flex-row flex-nowrap gap-2">
+    <a class="navbar-brand d-flex flex-row align-items-center" href="">
+      <img src="../../../assets/logo.png" class="logo" />
+    </a>
+
+    <div class="col-6">
+      <app-search-bar [fromNavbar]="true"></app-search-bar>
+    </div>
+
+    <div class="d-flex flex-row gap-3">
+      <ul class="navbar-nav d-flex flex-row align-items-center gap-3">
+        <div class="d-none d-lg-flex flex-row gap-3" *ngIf="!isLogin">
+          <li class="nav-item">
+            <button
+              type="button"
+              class="btn login-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#loginModal"
+            >
+              Log In
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              type="button"
+              class="btn signup-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#signupModal"
+            >
+              Sign Up
+            </button>
+          </li>
+        </div>
+
+        <a routerLink="/chat" *ngIf="isLogin" class="btn chat-btn">
+          <i class="bi bi-chat-square-dots"></i>
+        </a>
+
+        <li
+          class="nav-item user dropdown d-block {{
+            !isLogin || !user ? 'd-lg-none' : ''
+          }}"
+        >
+          <button
+            class="btn d-flex flex-row gap-1 align-items-center"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i *ngIf="!user || !isLogin" class="bi bi-person"></i>
+            <div *ngIf="user && isLogin" class="d-flex flex-row gap-2">
+              <div class="d-none d-lg-block">
+                {{ user.username }}
+              </div>
+              <img
+                src="{{ user.profilePicture }}"
+                alt=""
+                class="profile-picture"
+              />
+            </div>
+
+            <i class="bi bi-caret-down"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <div *ngIf="!isLogin || !user">
+              <li>
+                <button
+                  class="dropdown-item"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModal"
+                >
+                  Log in
+                </button>
+              </li>
+              <li>
+                <button
+                  class="dropdown-item"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signupModal"
+                >
+                  Sign up
+                </button>
+              </li>
+            </div>
+            <div *ngIf="isLogin && user">
+              <li>
+                <a routerLink="/u/{{ user.id }}">
+                  <button class="dropdown-item">My profile</button>
+                </a>
+              </li>
+              <li>
+                <a routerLink="/u/{{ user.id }}/update">
+                  <button class="dropdown-item">Update profile</button>
+                </a>
+              </li>
+              <li>
+                <button class="dropdown-item" (click)="logout()">
+                  Log out
+                </button>
+              </li>
+            </div>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <app-login (onLoginUser)="loginUser($event)"></app-login>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="signupModal"
+  tabindex="-1"
+  aria-labelledby="signupModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <app-signup (onSignupUser)="signupUser($event)"></app-signup>
+    </div>
+  </div>
+</div>

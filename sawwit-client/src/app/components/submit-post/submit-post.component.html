@@ -1,0 +1,133 @@
+<div class="container mt-5 pt-lg-5">
+  <div class="card">
+    <div
+      class="d-flex flex-md-row flex-column-reverse justify-content-md-between justify-content-start mb-3"
+    >
+      <nav>
+        <ul class="nav d-flex flex-row gap-3" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="post-type-btn active"
+              id="text-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#text"
+              type="button"
+              role="tab"
+              aria-controls="text"
+              aria-selected="true"
+              (click)="setType(1)"
+            >
+              Text
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="post-type-btn"
+              id="image-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#image"
+              type="button"
+              role="tab"
+              aria-controls="image"
+              aria-selected="false"
+              (click)="setType(2)"
+            >
+              Image
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="post-type-btn"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#url"
+              type="button"
+              role="tab"
+              aria-controls="url"
+              aria-selected="false"
+              (click)="setType(3)"
+            >
+              URL
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <div *ngIf="user" class="mb-2 mb-md-0">
+        <h6>
+          Posting as
+          <span
+            ><img class="profile-picture" src="{{ user.profilePicture }}"
+          /></span>
+          {{ user.username }}
+        </h6>
+      </div>
+    </div>
+    <form [formGroup]="createPostForm" (ngSubmit)="createPost(createPostForm)">
+      <app-search-bar
+        (onSetSubreddit)="setSubreddit($event)"
+        (onClearSubreddit)="clearSubreddit()"
+      ></app-search-bar>
+      <div class="my-3">
+        <textarea
+          autosize
+          [minRows]="1"
+          maxlength="300"
+          class="form-control title"
+          placeholder="Title"
+          formControlName="title"
+        ></textarea>
+      </div>
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="text"
+          role="tabpanel"
+          aria-labelledby="text-tab"
+        >
+          <textarea
+            autosize
+            [minRows]="3"
+            class="form-control body"
+            placeholder="Body (optional)"
+            formControlName="body"
+          ></textarea>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="image"
+          role="tabpanel"
+          aria-labelledby="image-tab"
+        >
+          <label
+            for="formFile"
+            class="form-control image-upload d-flex flex-row gap-2"
+          >
+            <i class="bi bi-image"></i>{{ imageUploadPlaceholder }}
+            <input
+              formControlName="image"
+              class="form-control image-upload-input"
+              type="file"
+              id="formFile"
+              accept="image/x-png, image/gif, image/jpeg"
+              (change)="onFileChange($event)"
+          /></label>
+        </div>
+        <div
+          class="tab-pane fade"
+          id="url"
+          role="tabpanel"
+          aria-labelledby="url-tab"
+        >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Place link here (required)"
+            formControlName="url"
+          />
+        </div>
+      </div>
+
+      <button type="submit" class="btn px-5 mt-4">Post</button>
+    </form>
+  </div>
+</div>

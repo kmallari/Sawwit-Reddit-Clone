@@ -1,0 +1,40 @@
+version: '3'
+services: # Here we define our service(s)
+    sawwit-client: # The name of the service
+      container_name: sawwit-client  # Container name
+      build: ./sawwit-client # Location of our Dockerfile
+      volumes: # Volume binding
+        - './sawwit-client:/app' 
+      ports: 
+        - '4200:4200' # Port mapping
+      command: > 
+        bash -c "ng serve --host 0.0.0.0 --port 4200"
+
+    sawwit-server:
+      build: ./sawwit-server
+      ports:
+        - 8080:8080
+      volumes:
+        - ./sawwit-server/:/app
+      environment:
+        - DB_NAME=mydb
+        - DB_HOST=sawwit-db_server
+        - DB_PORT=3306
+        - DB_USER=root
+        - DB_PASSWORD=password
+      depends_on:
+        - sawwit-db_server
+      command: "bash start.sh sawwit-db_server:3306"
+
+    sawwit-db_server:
+      image: mysql:5.7
+      ports:
+        - 3306:3306
+      environment:
+        - MYSQL_ROOT_PASSWORD=password
+        - MYSQL_DATABASE=mydb
+
+    redis:
+      image: redis
+      ports:
+        - "6379:6379"

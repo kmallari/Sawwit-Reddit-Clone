@@ -1,0 +1,90 @@
+<!-- TO DO: 
+  IMPROVE USER EXPERIENCE
+  BETTER DESIGN FOR ERRORS
+-->
+<div class="rounded-3 container form-container">
+  <button class="close" data-bs-dismiss="modal">
+    <i class="bi bi-x"></i>
+  </button>
+  <h3>Sign up.</h3>
+  <p>Signup to start using sawwit.</p>
+  <form [formGroup]="signupForm" (ngSubmit)="onFormSubmit(signupForm)">
+    <div class="form-floating mt-2 mb-2">
+      <input
+        type="text"
+        class="form-control {{ invalidUsername ? 'error-border' : '' }}"
+        id="floatingInput"
+        placeholder="name@example.com"
+        formControlName="username"
+        (change)="isValidUsername(signupForm.value.username)"
+      />
+      <label
+        for="floatingInput"
+        class="d-flex flex-row align-items-center gap-2"
+        ><i class="bi bi-person"></i>
+        <div>USERNAME</div></label
+      >
+    </div>
+    <ul class="invalid-signup" *ngIf="invalidUsername">
+      <li>Username should be 4-20 characters long.</li>
+      <li>No underscores at the beginning and end.</li>
+      <li>No multiple underscores inside the username.</li>
+      <li>Only alphanumeric characters and underscores are allowed.</li>
+    </ul>
+    <div class="form-floating mt-2 mb-2">
+      <input
+        type="email"
+        class="form-control {{ invalidEmail ? 'error-border' : '' }}"
+        id="floatingInput"
+        placeholder="name@example.com"
+        formControlName="email"
+        (change)="isValidEmail(signupForm.value.email)"
+      />
+      <label
+        for="floatingInput"
+        class="d-flex flex-row align-items-center gap-2"
+        ><i class="bi bi-envelope"></i>
+        <div>EMAIL</div></label
+      >
+    </div>
+    <ul class="invalid-signup" *ngIf="invalidEmail">
+      <li>Email must be a valid email.</li>
+    </ul>
+    <div class="form-floating mt-2 mb-2">
+      <input
+        type="password"
+        class="form-control {{ invalidPassword ? 'error-border' : '' }}"
+        id="floatingPassword"
+        placeholder="Password"
+        formControlName="password"
+        (change)="isValidPassword(signupForm.value.password)"
+      />
+      <label
+        for="floatingPassword"
+        class="d-flex flex-row align-items-center gap-2"
+        ><i class="bi bi-key"></i>PASSWORD</label
+      >
+    </div>
+    <ul class="invalid-signup" *ngIf="invalidPassword">
+      <li>Password should be 8-20 characters long.</li>
+      <li>Should contain at least one uppercase letter.</li>
+      <li>Should contain at least one lowercase letter.</li>
+      <li>Should contain at least one number.</li>
+      <li>Should contain at least one special character.</li>
+    </ul>
+    <p *ngIf="errorMessage" class="d-flex flex-row gap-2 error-message">
+      <i class="bi bi-exclamation-circle"></i>{{ errorMessage }}
+    </p>
+    <button type="submit" class="btn btn-primary mt-2 mb-2">Sign Up</button>
+  </form>
+  <p class="login-message">
+    Already have an account?
+    <span
+      class="open-login"
+      data-bs-dismiss="modal"
+      data-bs-toggle="modal"
+      data-bs-target="#loginModal"
+      >LOG IN</span
+    >
+  </p>
+</div>

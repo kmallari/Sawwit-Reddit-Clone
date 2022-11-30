@@ -1,0 +1,130 @@
+nav {
+  background-color: var(--dark-primary);
+  border: 1px solid var(--dark-secondary);
+  border-left: none;
+  border-right: none;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.login-btn {
+  border: 1px solid var(--primary);
+}
+
+.signup-btn {
+  background-color: var(--primary);
+}
+
+.login-btn,
+.signup-btn {
+  border-radius: 100em;
+  padding-left: 1.4em;
+  padding-right: 1.4em;
+  font-size: 1em;
+}
+
+.btn {
+  color: var(--light-primary);
+}
+
+.bi {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  border: 1px solid var(--dark-secondary);
+  border-radius: 0.5em;
+}
+
+.user:focus {
+  border-radius: 0.5em;
+  border: 1px solid var(--dark-secondary);
+}
+
+.bi-caret-down {
+  font-size: 0.8em;
+  color: var(--light-secondary);
+}
+
+.login-btn:hover {
+  background-color: var(--primary);
+}
+
+.signup-btn:hover {
+  background-color: var(--primary-hover);
+  border: 1px solid var(--primary-hover);
+}
+
+.navbar-brand {
+  color: var(--primary);
+  font-weight: bold;
+  margin-right: 0;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid var(--primary);
+}
+
+.bi-person {
+  color: var(--light-primary);
+}
+
+.dropdown-menu[data-bs-popper] {
+  top: 44px;
+  left: auto;
+  right: 0;
+}
+
+.dropdown-menu {
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-hover);
+}
+
+.dropdown-item {
+  color: var(--light-primary);
+}
+
+.dropdown-item:hover {
+  background-color: var(--dark-hover);
+}
+
+.logo {
+  width: 90px;
+  height: auto;
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.dropdown-menu.show {
+  position: absolute;
+}
+
+.navbar {
+  backdrop-filter: blur(2px);
+  background-color: rgba(37, 37, 37, 0.4);
+}
+a {
+  text-decoration: none;
+}
+
+.chat-btn {
+  font-size: 0.8em;
+  border: 1px solid var(--dark-secondary);
+  border-radius: 0.4em;
+  padding: 0.66em;
+  color: var(--light-secondary);
+}
+
+.chat-btn:hover {
+  background-color: var(--dark-secondary);
+  border: 1px solid var(--dark-hover);
+  color: var(--secondary);
+}

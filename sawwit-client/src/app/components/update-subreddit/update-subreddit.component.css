@@ -1,0 +1,133 @@
+@media (min-width: 992px) {
+  .container {
+    max-width: 840px;
+  }
+}
+
+@media (min-width: 768px) {
+  .flex-auto {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .flex-auto {
+    flex-direction: row;
+  }
+}
+
+.card {
+  padding: 2em;
+  margin-top: 12em;
+  margin-bottom: 8em;
+}
+
+.subreddit-icon {
+  width: 80px;
+  height: 80px;
+}
+
+.description {
+  color: var(--light-secondary);
+}
+
+h5,
+p {
+  margin: 0;
+}
+
+.line {
+  border-right: 1px solid var(--dark-hover);
+}
+
+.form-label {
+  opacity: 50%;
+}
+
+textarea,
+input {
+  resize: none;
+  background-color: var(--dark-secondary);
+  border: none;
+  color: var(--light-secondary);
+}
+
+textarea:focus,
+input:focus {
+  background-color: var(--dark-secondary);
+  box-shadow: 0 0 0 1px var(--secondary);
+  color: var(--light-secondary);
+  border: none;
+  outline: none;
+}
+
+label {
+  color: #7e848a;
+  opacity: 100%;
+}
+
+.image-upload-input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.image-upload {
+  background-color: var(--dark-secondary);
+  border: none;
+  outline: none;
+  color: #60676d;
+  margin-top: 1em;
+  height: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-upload:hover {
+  background-color: var(--dark-secondary);
+  box-shadow: 0 0 0 1px var(--secondary);
+  border: none;
+  outline: none;
+}
+
+.btn {
+  padding: 0.4em 1em;
+  background-color: var(--light-secondary);
+  transition: all 0.1s ease-in-out;
+  border-radius: 100em;
+  font-weight: 700;
+  margin-top: 1em;
+
+  width: fit-content;
+}
+
+.btn:hover {
+  background-color: var(--light-primary);
+}
+
+a {
+  color: var(--light-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.label {
+  background-color: var(--dark-secondary);
+  padding: 0.2em 0.8em;
+  border-radius: 0.4em;
+  font-size: 0.8rem;
+  color: var(--light-primary);
+  font-weight: 600;
+  margin-right: 0.6em;
+  width: fit-content;
+}

@@ -1,0 +1,57 @@
+<div class="container card d-flex flex-md-row gap-lg-5 gap-3">
+  <div
+    class="container d-flex flex-auto gap-4 align-items-start"
+    *ngIf="subreddit"
+  >
+    <img class="subreddit-icon" src="{{ subreddit.icon }}" alt="" />
+    <div class="d-flex flex-column gap-2">
+      <h5 class="d-flex flex-column flex-sm-row justify-content-start gap-2">
+        <span class="label">Name: </span>{{ subreddit.name }}
+      </h5>
+      <p class="description d-flex flex-column justify-content-start gap-2">
+        <span class="label">Description: </span>{{ description }}
+      </p>
+    </div>
+  </div>
+  <span class="line"></span>
+  <div class="container">
+    <form
+      class="mb-3 d-flex flex-column"
+      [formGroup]="updateSubredditForm"
+      (ngSubmit)="updateSubreddit(updateSubredditForm)"
+    >
+      <h6>Update subsawwit information here.</h6>
+      <div class="form-floating">
+        <textarea
+          autosize
+          type="email"
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="floatingTextarea"
+          placeholder="name@example.com"
+          formControlName="description"
+        ></textarea>
+        <label for="floatingTextarea" class="form-label"
+          >Change Description (Optional)</label
+        >
+      </div>
+
+      <label
+        for="formFile"
+        class="form-control image-upload d-flex flex-row gap-2"
+      >
+        <i class="bi bi-image"></i>
+        {{ imageUploadPlaceholder }}</label
+      >
+      <input
+        class="form-control image-upload-input"
+        type="file"
+        id="formFile"
+        accept="image/png, image/jpeg"
+        #fileInput
+        (change)="onFileChange($event)"
+      />
+      <button class="btn" type="submit">Update subsawwit</button>
+    </form>
+  </div>
+</div>

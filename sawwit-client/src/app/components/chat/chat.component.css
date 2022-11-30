@@ -1,0 +1,20 @@
+.chat-rightbar {
+  width: 100px;
+  border-left: 1px solid var(--dark-secondary);
+  overflow: auto;
+}
+
+.chat-messages {
+  flex: 1;
+}
+
+@media only screen and (min-width: 991px) {
+  .chat-container {
+    margin-top: -62px;
+    height: calc(100vh - 68px);
+  }
+
+  .chat-rightbar {
+    width: 360px;
+  }
+}

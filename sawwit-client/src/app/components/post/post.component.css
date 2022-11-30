@@ -1,0 +1,9 @@
+.card {
+  cursor: default;
+  max-height: fit-content;
+}
+
+.post-body {
+  background-image: none;
+}
+

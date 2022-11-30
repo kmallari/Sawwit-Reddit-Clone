@@ -1,0 +1,15 @@
+<!-- <app-sidebar-left class="col"></app-sidebar-left> -->
+<div *ngIf="postData" class="w-100 container mt-5">
+  <div class="row">
+    <div class="col-12 col-lg-8 d-flex flex-column gap-4">
+      <app-post-card
+        *ngIf="postData"
+        [postData]="postData"
+        [revealFullContent]="true"
+        (onVotePost)="votePost($event)"
+      ></app-post-card>
+      <app-comments-container [postId]="postData.id"></app-comments-container>
+    </div>
+    <!-- <app-sidebar-right class="col d-none d-lg-inline"></app-sidebar-right> -->
+  </div>
+</div>

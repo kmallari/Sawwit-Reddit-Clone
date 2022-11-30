@@ -1,0 +1,44 @@
+.card {
+  padding: 2em;
+  max-height: fit-content;
+}
+
+label {
+  font-weight: 500;
+}
+
+textarea,
+input {
+  resize: none;
+  background-color: var(--dark-secondary);
+  border: none;
+  color: var(--light-secondary);
+  border-radius: 0.4em;
+  padding: 0.6em;
+  width: 100%;
+}
+
+textarea:focus,
+input:focus {
+  background-color: var(--dark-secondary);
+  box-shadow: 0 0 0 1px var(--secondary);
+  color: var(--light-secondary);
+  border: none;
+  outline: none;
+}
+
+.create-subreddit-btn {
+  font-size: small;
+  background-color: var(--primary);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: var(--light-primary);
+  font-size: small;
+  padding: 0.8em 1em;
+  border-radius: 100em;
+}
+
+.create-subreddit-btn:hover {
+  background-color: var(--primary-hover);
+}

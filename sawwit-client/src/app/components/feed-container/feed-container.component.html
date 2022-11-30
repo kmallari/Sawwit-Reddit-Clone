@@ -1,0 +1,41 @@
+<div
+  class="w-100 container mt-5"
+  infiniteScroll
+  [infiniteScrollDistance]="0.5"
+  [infiniteScrollThrottle]="150"
+  (scrolled)="onScroll()"
+>
+  <div class="row">
+    <div class="col-12 col-lg-8 d-flex flex-column gap-4 order-2 order-lg-1">
+      <div class="card p-4 mt-4 mt-lg-0" *ngIf="isLogin">
+        <app-create-post-cta></app-create-post-cta>
+      </div>
+      <app-posts-list [posts]="posts"></app-posts-list>
+      <div class="card p-4"><p class="m-0">You've reached the end!</p></div>
+    </div>
+
+    <div class="col-12 col-lg-4 d-flex flex-column gap-4 order-1 order-lg-2">
+      <app-create-subreddit *ngIf="isLogin"></app-create-subreddit>
+      <div class="card recent-subreddits d-none d-lg-inline">
+        <h4 class="recently-created-header">Recently created subsawwits</h4>
+        <ul class="subreddit-list">
+          <li
+            class="subreddit d-flex flex-row align-items-center gap-3"
+            *ngFor="let s of recentSubreddits"
+            [routerLink]="['/s/', s.name]"
+          >
+            <img
+              class="subreddit-icon-small"
+              src="{{ s.icon }}"
+              alt="{{ s.name }}"
+            />
+            <div class="d-flex flex-column">
+              <div class="subreddit-name-list">{{ s.name }}</div>
+              <div class="post-count">Posts: {{ s.postCount }}</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="d-flex flex-column w-100 h-100 mt-3">
+  <h3 class="p-3 m-0 room-name">{{ room.name }}</h3>
+  <!-- SENDING NEW MESSAGE -->
+
+  <div class="p-4 w-100 h-100 d-flex flex-column justify-content-between">
+    <ul class="d-flex flex-column-reverse gap-3 scroll-container">
+      <!-- {{ roomMessages[0].message}} -->
+      <li
+        *ngFor="let message of roomMessages"
+        class="d-flex flex-row gap-2 {{
+          loggedInUser && message.senderId === loggedInUser.id
+            ? 'flex-row-reverse justify-content-start'
+            : ''
+        }}"
+      >
+        <img
+          class="sender-pp"
+          src="{{ message.senderProfilePicture }}"
+          alt=""
+        />
+        <div class="w-100 d-flex flex-column">
+          <span
+            class="sender {{
+              loggedInUser && message.senderId === loggedInUser.id ? 'own' : ''
+            }}"
+            >{{
+              loggedInUser && message.senderId === loggedInUser.id
+                ? "You"
+                : message.senderUsername
+            }}</span
+          >
+          <div
+            class="message {{
+              loggedInUser && message.senderId === loggedInUser.id
+                ? 'own-message'
+                : ''
+            }}"
+          >
+            {{ message.message }}
+          </div>
+          <span
+            class="sent {{
+              loggedInUser && message.senderId === loggedInUser.id
+                ? 'sent-own'
+                : ''
+            }}"
+            >Sent {{ getTimeAgo(message.createdAt) }}</span
+          >
+        </div>
+      </li>
+    </ul>
+
+    <form class="d-flex flex-row gap-3">
+      <textarea
+        class="form-control input"
+        [(ngModel)]="newMessage"
+        type="text"
+        [ngModelOptions]="{ standalone: true }"
+      ></textarea>
+      <button (click)="sendMessage(roomId)" class="send-btn">
+        <i class="bi bi-send-fill"></i>
+      </button>
+    </form>
+  </div>
+</div>
